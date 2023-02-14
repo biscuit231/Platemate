@@ -1,30 +1,29 @@
 const { Schema, model } = require('mongoose');
 
-const schoolSchema = new Schema(
+const restaurantSchema = new Schema(
   {
-    name: {
+    id: {
       type: String,
       required: true,
-      unique: true,
       trim: true
+    },
+    title: {
+      type: String,
+      required: true
     },
     location: {
       type: String,
       required: true
     },
-    studentCount: {
-      type: Number,
-      required: true
-    },
     classes: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Class'
+        ref: 'Item'
       }
     ]
   }
 );
 
-const School = model('School', schoolSchema);
+const Restaurant = model('Restaurant', restaurantSchema);
 
-module.exports = School;
+module.exports = Restaurant;
