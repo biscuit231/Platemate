@@ -1,7 +1,6 @@
 const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
-  # Define which fields are accessible from the Item model
   type Item {
     _id: ID
     name: String
@@ -12,9 +11,46 @@ const typeDefs = gql`
     img: String
   }
 
-  # Define which queries the front end is allowed to make and what data is returned
+  type User {
+    _id: ID
+    firstname: String
+    lastname: String
+    email: String
+    phone: Int
+    password: String
+  }
+
+  type Restaurant {
+    _id: ID
+    title: String
+    location: String
+    items: [Item]
+  }
+
+  type Order {
+    _id: ID
+    purchaseDate: String
+    items: [Item]
+  }
+
+  type Checkout {
+    session: ID
+  }
+
+  type Auth {
+    token: ID
+    user: User
+  }
+
   type Query {
     items: [Item]
+  }
+
+  type Mutation {
+    addUser(firstName: String!, lastName: String!, email: String!, password: String!, phone: String!): Auth
+    addOrder(products: [ID]!): Order
+    updateUser(firstName: String, lastName: String, email: String, password: String, phone: String!): User
+    login(email: String!, password: String!): Auth
   }
 `;
 
