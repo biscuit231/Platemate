@@ -1,0 +1,44 @@
+[
+    {
+        "firstname": "bob",
+        "lastname": "stevens",
+        "email": "bob@hotmail.com",
+        "phone": "0412345678",
+        "password": ""
+    },
+    {
+        "firstname": "charlie",
+        "lastname": "chad",
+        "email": "charlie@hotmail.com",
+        "phone": "0412345678",
+        "password": ""
+    },
+    {
+        "firstname": "hannah",
+        "lastname": "greg",
+        "email": "hannah@hotmail.com",
+        "phone": "0412345678",
+        "password": ""
+    },
+    {
+        "firstname": "mia",
+        "lastname": "george",
+        "email": "mia@hotmail.com",
+        "phone": "0412345678",
+        "password": ""
+    },
+    {
+        "firstname": "rachel",
+        "lastname": "smith",
+        "email": "rachel@hotmail.com",
+        "phone": "0412345678",
+        "password": ""
+    },
+    {
+        "firstname": "tom",
+        "lastname": "lopas",
+        "email": "tom@hotmail.com",
+        "phone": "0412345678",
+        "password": ""
+    }
+]

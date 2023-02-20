@@ -1,13 +1,32 @@
-const { Item } = require('../models');
+const { Item, User, Restaurant } = require('../models');
 
-// Create the functions that fulfill the queries defined in `typeDefs.js`
 const resolvers = {
   Query: {
     items: async () => {
-      // Get and return all documents from the classes collection
       return await Item.find({});
-    }
-  }
+    },
+    // restaurants: async () => {
+    //   return await Restaurant.find({}).populate('items');
+    // },
+    // restaurant: async (parent, args) => {
+    //   return await Restaurant.findById(args.id);
+    // },
+  },
+  // Mutation: {
+  //   addUser: async (parent, { firstname, lastname, email, phone, password }) => {
+  //     return await User.create({ firstname, lastname, email, phone, password });
+  //   },
+  //   updateUser: async (parent, { id, firstname, lastname, phone, password }) => {
+  //     return await User.findOneAndUpdate(
+  //       { _id: id }, 
+  //       { firstname },
+  //       { lastname },
+  //       { phone },
+  //       { password },
+  //       { new: true }
+  //     );
+  //   }
+  // }
 };
 
 module.exports = resolvers;

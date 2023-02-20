@@ -1,20 +1,23 @@
 // const db = require('../config/connection');
-// const { School, Class, Professor } = require('../models');
+// const { Address, Item, User, Restaurant } = require('../models');
 
-// const schoolData = require('./schoolData.json');
-// const classData = require('./classData.json');
-// const professorData = require('./professorData.json');
+// const addressData = require('./addressData.json');
+// const itemData = require('./itemData.json');
+// const userData = require('./userData.json');
+// const restaurantData = require('./restaurantData.json');
 
 // db.once('open', async () => {
 //   // clean database
-//   await School.deleteMany({});
-//   await Class.deleteMany({});
-//   await Professor.deleteMany({});
+//   await Item.deleteMany({});
+//   await User.deleteMany({});
+//   await Address.deleteMany({});
+//   await Restaurant.deleteMany({});
 
 //   // bulk create each model
-//   const schools = await School.insertMany(schoolData);
-//   const classes = await Class.insertMany(classData);
-//   const professors = await Professor.insertMany(professorData);
+//   const items = await Item.insertMany(itemData);
+//   const users = await User.insertMany(userData);
+//   const addresses = await Address.insertMany(addressData);
+//   const restaurants = await Restaurant.insertMany(restaurantData);
 
 //   for (newClass of classes) {
 //     // randomly add each class to a school

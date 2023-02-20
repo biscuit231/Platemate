@@ -8,7 +8,7 @@ const addressSchema = new Schema(
     classes: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'Address'
+          ref: 'User'
         }
       ]
   }
