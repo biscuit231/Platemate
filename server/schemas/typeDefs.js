@@ -44,6 +44,11 @@ const typeDefs = gql`
 
   type Query {
     items: [Item]
+    items(category: ID, name: String): [Item]
+    item(_id: ID!): Item
+    user: User
+    order(_id: ID!): Order
+    checkout(items: [ID]!): Checkout
   }
 
   type Mutation {
