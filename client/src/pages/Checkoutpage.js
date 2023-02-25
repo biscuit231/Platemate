@@ -1,6 +1,7 @@
 import { createMedia } from '@artsy/fresnel'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import {
   Button,
   Container,
@@ -12,9 +13,12 @@ import {
   Segment,
   Sidebar,
   Visibility,
+  Dropdown,
+  Image
 } from 'semantic-ui-react'
+
 import Logo from '../assets/images/restaurant.png'
-import { Checkout } from '../components/Checkout'
+import { Checkout } from '../components/Checkout/index'
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -75,14 +79,20 @@ class DesktopContainer extends Component {
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size='big'
+              size='massive'
             >
               <Container>
               <Menu.Item style={{ maxHeight: 50, padding: '1em 1em' }}>
-                <img alt="logo" src={Logo}/>
+              <Image alt="logo" src={Logo} style={{ marginLeft: '0.5em' }} size='tiny'/>
               </Menu.Item>
-                <Menu.Item as='a'>Home</Menu.Item>
-                <Menu.Item as='a'>Menu</Menu.Item>
+                <Menu.Item><Link to="/">Home</Link></Menu.Item>
+                <Dropdown text='Menu' as='h3' style={{ maxHeight: 55, padding: '1em 1em' }}>
+                  <Dropdown.Menu>
+                    <Dropdown.Item icon='edit' text='Edit Profile' />
+                    <Dropdown.Item icon='globe' text='Choose Language' />
+                    <Dropdown.Item icon='settings' text='Account Settings' />
+                  </Dropdown.Menu>
+                </Dropdown>
               </Container>
             </Menu>
             <HomepageHeading />
@@ -178,9 +188,12 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const Checkoutpage = () => (
+
+const Checkoutpage = () => {
+
+  return (
   <ResponsiveContainer>
-      <Container style={{ padding: '8em 0em' }} vertical>
+      <Container style={{ padding: '8em 0em' }} vertical='true'>
       <Checkout />
       </Container>
 
@@ -219,5 +232,6 @@ const Checkoutpage = () => (
     </Segment>
   </ResponsiveContainer>
 )
+}
 
 export default Checkoutpage
