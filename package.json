@@ -28,7 +28,7 @@
         "web-vitals": "^3.1.1"
     },
     "scripts": {
-        "start": "node server.js",
+        "start": "node index.js",
         "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
         "install": "cd server && npm i && cd ../client && npm i",
         "seed": "cd server && npm run seed",
