@@ -28,7 +28,7 @@
         "web-vitals": "^3.1.1"
     },
     "scripts": {
-        "start": "node index.js",
+        "start": "node server.js",
         "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
         "install": "cd server && npm i && cd ../client && npm i",
         "seed": "cd server && npm run seed",
@@ -40,6 +40,10 @@
             "react-app/jest"
         ]
     },
+    "engines": {
+        "node": "v16.18.0",
+        "npm": "8.19.2"
+      },
     "browserslist": {
         "production": [
             ">0.2%",
