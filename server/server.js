@@ -23,7 +23,7 @@ app.use(express.json());
 // Serve up static assets
 app.use('/images', express.static(path.join(__dirname, '../client/src/assets/images')));
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' || true) {
   app.use(express.static(path.join(__dirname, '../client/build')));
   app.get("*", function (res, req) {
     res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
