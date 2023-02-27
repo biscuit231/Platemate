@@ -8,7 +8,7 @@ require('dotenv').config()
 const { typeDefs, resolvers } = require('./schemas');
 const db = require('./config/connection');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const app = express();
 const server = new ApolloServer({
   typeDefs,
@@ -16,7 +16,6 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
