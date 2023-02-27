@@ -9,18 +9,17 @@ import {
   Grid,
   Header,
   Icon,
-  Image,
   List,
   Menu,
   Segment,
   Sidebar,
   Visibility,
-  Dropdown
+  Dropdown, 
+  Image
 } from 'semantic-ui-react'
-import {Searchbar} from '../components/Searchbar'
-import Cart from '../components/Cart'
 import Logo from '../assets/images/restaurant.png'
-import Food from '../assets/images/menulog-food-delivery-app-4.jpg'
+import { McdonaldsItems } from '../components/McdonaldsItems'
+import Cart from '../components/Cart'
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -38,31 +37,16 @@ const HomepageHeading = ({ mobile }) => (
   <Container text>
     <Header
       as='h1'
-      content='PlateMate'
+      content='Shop'
       inverted
       style={{
-        fontSize: mobile ? '2em' : '4em',
+        fontSize: mobile ? '1.5em' : '3em',
         fontWeight: 'normal',
         marginBottom: 0,
-        marginTop: mobile ? '1.5em' : '3em',
-      }}
-    />
-    <Header
-      as='h2'
-      content='Get your food where you want it, when you want it'
-      inverted
-      style={{
-        fontSize: mobile ? '1.5em' : '1.7em',
-        fontWeight: 'normal',
-        marginTop: mobile ? '0.5em' : '1.5em',
+        marginTop: mobile ? '1em' : '2em',
       }}
     />
     <Container>
-    {Auth.loggedIn() ? (
-      <Searchbar />
-      ) : (
-        <h3>Login to search</h3>
-        )}
     </Container>
   </Container>
 )
@@ -92,7 +76,7 @@ class DesktopContainer extends Component {
           <Segment
             inverted
             textAlign='center'
-            style={{ minHeight: 700, padding: '1em 0em' }}
+            style={{ minHeight: 300, padding: '1em 0em' }}
             vertical
           >
             <Menu
@@ -100,50 +84,26 @@ class DesktopContainer extends Component {
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size='massive'
+              size='huge'
             >
               <Container>
-              {Auth.loggedIn() ? (
-            <>  
-                <Menu.Item style={{ maxHeight: 70, padding: '1.1em 1.6em' }}>
-                <Image alt="logo" src={Logo} style={{ marginLeft: '0.5em' }} size='tiny'/>
-                </Menu.Item>
-                <Dropdown text='Menu' as='h3'>
+              <Menu.Item style={{ maxHeight: 50, padding: '1em 1em' }}>
+              <Image alt="logo" src={Logo} style={{ marginLeft: '0.5em' }} size='tiny'/>
+              </Menu.Item>
+              <Menu.Item style={{ padding: '1.5em 1.6em', margin: '0px 0px -2px'}} ><Link to="/">Home</Link></Menu.Item>
+                <Dropdown text='Menu' as='h3' style={{ maxHeight: 50, padding: '0.5em 0.5em' }}>
                   <Dropdown.Menu>
                     <Dropdown.Item icon='edit' text='Edit Profile' />
                     <Dropdown.Item icon='globe' text='Choose Language' />
                     <Dropdown.Item icon='settings' text='Account Settings' />
                   </Dropdown.Menu>
                 </Dropdown>
-                {/* <Menu.Item style={{ padding: '1.1em 1.6em', fontSize: '24px' }}>
-                  Hey there, {Auth.getProfile().data.firstName}!
-                  </Menu.Item> */}
                 <Menu.Item position='right' >
                   <Cart/>
                     <Button inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }} onClick={logout}>
                       Logout
                     </Button>
                 </Menu.Item>
-            </>
-          ) : (
-            <>  
-                <Menu.Item style={{ maxHeight: 70, padding: '1.1em 1.6em' }}>
-                  <Image alt="logo" src={Logo} style={{ marginLeft: '0.5em' }} size='tiny'/>
-                </Menu.Item>
-                <Menu.Item style={{ padding: '1.6em 1.6em', margin: '0px 0px -2px'}} ><Link to="/">Home</Link></Menu.Item>
-                <Menu.Item position='right' >
-                  <Link to="/login">
-                  <Button inverted={!fixed} size='huge'>
-                  Log in
-                  </Button>
-                  </Link>
-                  <Link to="/signup">
-                  <Button inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }} size='huge'>
-                  Sign up
-                  </Button></Link>
-                </Menu.Item>
-            </>
-          )}
               </Container>
             </Menu>
             <HomepageHeading />
@@ -188,8 +148,6 @@ class MobileContainer extends Component {
             <Menu.Item as='a'>Work</Menu.Item>
             <Menu.Item as='a'>Company</Menu.Item>
             <Menu.Item as='a'>Careers</Menu.Item>
-            <Menu.Item as='a'>Log in</Menu.Item>
-            <Menu.Item as='a'>Sign Up</Menu.Item>
           </Sidebar>
 
           <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -241,32 +199,11 @@ ResponsiveContainer.propTypes = {
   children: PropTypes.node,
 }
 
-const Home = () => (
+const Mcdonalds = () => (
   <ResponsiveContainer>
-    <Segment style={{ padding: '8em 0em' }} vertical>
-      <Grid container stackable verticalAlign='middle'>
-        <Grid.Row>
-          <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
-              Our Goals:
-            </Header>
-            <p style={{ fontSize: '1.33em' }}>
-            The goal of this app is to support the community by making it easy and convenient for people to order food from their favorite local restaurants. I believe in the importance of supporting small businesses and providing them with a platform to reach a wider audience. With this app, customers can discover new restaurants, browse menus, and place orders with just a few taps on their phone.
-            </p>
-            
-            <p style={{ fontSize: '1.33em' }}>
-            But this app isn't just about convenience and accessibility. It's also about creating a more sustainable and environmentally-friendly food delivery system. I'm committed to reducing waste and emissions by using eco-friendly packaging and partnering with restaurants that prioritize sustainability.
-
-I'm excited to see how this app will grow and evolve, and I hope it will make a positive impact on both the local food scene and the environment. Thank you for choosing to support local businesses and join me on this journey.
-            </p>
-          </Grid.Column>
-          <Grid.Column floated='right' width={6}>
-            <Image bordered rounded size='large' src={Food} />
-          </Grid.Column>
-        </Grid.Row>
-        
-      </Grid>
-    </Segment>
+      <Container style={{ padding: '8em 0em' }}>
+      <McdonaldsItems />
+      </Container>
 
     <Segment inverted vertical style={{ padding: '5em 0em' }}>
       <Container>
@@ -304,4 +241,4 @@ I'm excited to see how this app will grow and evolve, and I hope it will make a 
   </ResponsiveContainer>
 )
 
-export default Home
+export default Mcdonalds

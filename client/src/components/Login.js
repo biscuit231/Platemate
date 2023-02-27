@@ -46,7 +46,7 @@ const Login = (props) => {
       <Header as='h2' color='teal' textAlign='center'>
         <Link to='/'><Image src={Logo} alt='logo' style={{ maxWidth: '2em', maxheight: '5em', }} verticalAlign='middle'/> </Link> Log-in to your account
       </Header>
-      <Form size='large' onSubmit={handleFormSubmit}>
+      <Form size='large' onSubmit={handleFormSubmit} style={{margin: '0 0 0 -2em'}}>
       <Segment stacked>
             <Form.Input 
             fluid 

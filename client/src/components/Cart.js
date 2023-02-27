@@ -23,7 +23,7 @@ const Cart = () => {
           {/* //////////////////////////////// */}
           <Divider />
                 <Link to="/checkout">
-                  <Button primary style={{ margin: '0.5em',padding: '1em 1em' }} onClick={handleCheckout}>
+                  <Button primary style={{padding: '1em 1em', margin: '0.5em 0 0.5em 0' }} onClick={handleCheckout}>
                     Checkout
                   </Button>
                 </Link>

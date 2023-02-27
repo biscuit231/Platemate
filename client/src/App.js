@@ -19,6 +19,8 @@ import Loginpage from './pages/Loginpage'
 import Home  from './pages/Home'
 import Checkoutpage from './pages/Checkoutpage'
 import Success from './pages/Success'
+import Mcdonalds from './pages/Mcdonalds'
+
 
 const stripePromise = loadStripe("pk_test_51MdW8iGLek4VvT99uun7zLuoHGZacReZrs0gyOfY31UrfO0aR7LMcNfV1WmhuewQ86GnxFGRrXhqcfqqn6HsVG7t004EpPPIbv");
 
@@ -82,6 +84,10 @@ function App() {
           <Route 
             path='/shop' 
             element={<Shop />} 
+          />
+          <Route 
+            path='/mcdonalds' 
+            element={<Mcdonalds />} 
           />
           <Route 
             path='/success' 
