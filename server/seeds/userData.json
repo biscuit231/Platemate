@@ -1,44 +1,44 @@
 [
     {
-        "firstname": "bob",
-        "lastname": "stevens",
+        "firstName": "bob",
+        "lastName": "stevens",
         "email": "bob@hotmail.com",
-        "phone": "0412345678",
-        "password": ""
+        "phoneNumber": "0412345678",
+        "password": "123456789"
     },
     {
-        "firstname": "charlie",
-        "lastname": "chad",
+        "firstName": "charlie",
+        "lastName": "chad",
         "email": "charlie@hotmail.com",
-        "phone": "0412345678",
-        "password": ""
+        "phoneNumber": "0412345678",
+        "password": "123456789"
     },
     {
-        "firstname": "hannah",
-        "lastname": "greg",
+        "firstName": "hannah",
+        "lastName": "greg",
         "email": "hannah@hotmail.com",
-        "phone": "0412345678",
-        "password": ""
+        "phoneNumber": "0412345678",
+        "password": "123456789"
     },
     {
-        "firstname": "mia",
-        "lastname": "george",
+        "firstName": "mia",
+        "lastName": "george",
         "email": "mia@hotmail.com",
-        "phone": "0412345678",
-        "password": ""
+        "phoneNumber": "0412345678",
+        "password": "123456789"
     },
     {
-        "firstname": "rachel",
-        "lastname": "smith",
+        "firstName": "rachel",
+        "lastName": "smith",
         "email": "rachel@hotmail.com",
-        "phone": "0412345678",
-        "password": ""
+        "phoneNumber": "0412345678",
+        "password": "123456789"
     },
     {
-        "firstname": "tom",
-        "lastname": "lopas",
+        "firstName": "tom",
+        "lastName": "lopas",
         "email": "tom@hotmail.com",
-        "phone": "0412345678",
-        "password": ""
+        "phoneNumber": "0412345678",
+        "password": "123456789"
     }
 ]

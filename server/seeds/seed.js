@@ -1,40 +1,40 @@
-// const db = require('../config/connection');
-// const { Address, Item, User, Restaurant } = require('../models');
+const db = require('../config/connection');
+const { User, Restaurant, Order, Item, Address } = require('../models');
 
-// const addressData = require('./addressData.json');
-// const itemData = require('./itemData.json');
-// const userData = require('./userData.json');
-// const restaurantData = require('./restaurantData.json');
+const userData = require('./userData.json');
+const restaurantData = require('./restaurantData.json');
+const addressData = require('./addressData.json');
+const orderData = require('./orderData.json');
 
-// db.once('open', async () => {
-//   // clean database
-//   await Item.deleteMany({});
-//   await User.deleteMany({});
-//   await Address.deleteMany({});
-//   await Restaurant.deleteMany({});
+const kfcData = require('./kfcData.json');
+const mcdonaldsData = require('./mcdonaldsData.json');
+const ososmexicanData = require('./ososmexicanData.json');
+const pizzahutData = require('./pizzahutData.json');
+const subwayData = require('./subwayData.json');
+const safaviData = require('./safaviData.json');
 
-//   // bulk create each model
-//   const items = await Item.insertMany(itemData);
-//   const users = await User.insertMany(userData);
-//   const addresses = await Address.insertMany(addressData);
-//   const restaurants = await Restaurant.insertMany(restaurantData);
 
-//   for (newClass of classes) {
-//     // randomly add each class to a school
-//     const tempSchool = schools[Math.floor(Math.random() * schools.length)];
-//     tempSchool.classes.push(newClass._id);
-//     await tempSchool.save();
+db.once('open', async () => {
+  try {
+    await Restaurant.deleteMany({});
+    await User.deleteMany({});
+    await Order.deleteMany({});
+    await Item.deleteMany({});
+    await Address.deleteMany({});
 
-//     // randomly add a professor to each class
-//     const tempProfessor = professors[Math.floor(Math.random() * professors.length)];
-//     newClass.professor = tempProfessor._id;
-//     await newClass.save();
+    await User.create(userData);
+    await Address.insertMany(addressData);
+    await Order.insertMany(orderData);
+    await Restaurant.insertMany(restaurantData);
 
-//     // reference class on professor model, too
-//     tempProfessor.classes.push(newClass._id);
-//     await tempProfessor.save();
-//   }
+    for (let i = 0; i < kfcData.length; i++) {
+     await Restaurant.create(kfcData[i]);
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
 
-//   console.log('all done!');
-//   process.exit(0);
-// });
+  console.log('all done!');
+  process.exit(0);
+});

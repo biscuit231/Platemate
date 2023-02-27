@@ -6,9 +6,9 @@ export const Card = () => {
         <div className="image">
             <img src={logo} alt='logo'/>
         </div>
-        <div class="content">
+        <div className="content">
             <span className="header">Resturant Name</span>
-            <div class="meta">
+            <div className="meta">
             <span>Delivery fee/ Delivery Time</span>
             </div>
         </div>

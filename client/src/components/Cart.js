@@ -16,7 +16,7 @@ const Cart = () => {
           name='cart'
         
           >
-      <Dropdown icon='cart'direction='left' >
+      <Dropdown icon='cart big' direction='left' >
         <Dropdown.Menu style={{ fontSize: '1.6em' }}>
           <Dropdown.Item text='Cart' />
           <Divider />

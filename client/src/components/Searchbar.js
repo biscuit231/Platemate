@@ -1,84 +1,18 @@
-import _ from 'lodash'
-import { faker } from '@faker-js/faker';
-import React from 'react'
-import { Search, Grid } from 'semantic-ui-react'
-
-// Sample code seed
-const source = _.times(5, () => ({
-  title: faker.company.name(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, '$'),
-}))
-
-const initialState = {
-  loading: false,
-  results: [],
-  value: '',
-}
-
-function searchReducer(state, action) {
-  switch (action.type) {
-    case 'CLEAN_QUERY':
-      return initialState
-    case 'START_SEARCH':
-      return { ...state, loading: true, value: action.query }
-    case 'FINISH_SEARCH':
-      return { ...state, loading: false, results: action.results }
-    case 'UPDATE_SELECTION':
-      return { ...state, value: action.selection }
-
-    default:
-      throw new Error()
-  }
-}
+import React from 'react';
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
+// require('dotenv').config()
 
 export const Searchbar = () => {
-  const [state, dispatch] = React.useReducer(searchReducer, initialState)
-  const { loading, results, value } = state
-
-  const timeoutRef = React.useRef()
-  const handleSearchChange = React.useCallback((e, data) => {
-    clearTimeout(timeoutRef.current)
-    dispatch({ type: 'START_SEARCH', query: data.value })
-
-    timeoutRef.current = setTimeout(() => {
-      if (data.value.length === 0) {
-        dispatch({ type: 'CLEAN_QUERY' })
-        return
-      }
-
-      const re = new RegExp(_.escapeRegExp(data.value), 'i')
-      const isMatch = (result) => re.test(result.title)
-
-      dispatch({
-        type: 'FINISH_SEARCH',
-        results: _.filter(source, isMatch),
-      })
-    }, 300)
-  }, [])
-  React.useEffect(() => {
-    return () => {
-      clearTimeout(timeoutRef.current)
-    }
-  }, [])
+  function onChange(props) {
+    console.log(props);
+  }
 
   return (
-    <div>
-      <Grid>
-        <Grid.Column>
-          <Search
-            loading={loading}
-            placeholder='Search...'
-            onResultSelect={(e, data) =>
-              dispatch({ type: 'UPDATE_SELECTION', selection: data.result.title })
-            }
-            onSearchChange={handleSearchChange}
-            results={results}
-            value={value}
-          />
-        </Grid.Column>
-      </Grid>
-    </div>
-  )
+  <div style={{color: 'black'}} onClick={onChange}>
+    <GooglePlacesAutocomplete
+      // apiKey={process.env.API_KEY}
+      apiKey="AIzaSyCn-sq0MPQg8YPo9YK0L-Dxq-yOlFVtBOA"
+    />
+  </div>
+);
 }

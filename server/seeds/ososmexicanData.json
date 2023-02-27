@@ -1,0 +1,50 @@
+[
+  {
+    "id": "123",
+    "name": "Burger",
+    "description": "sbsrbbsbg sths rtgrtbswa rhgssfr thsar srgb sr f",
+    "price": 8,
+    "available": true,
+    "type": "Food"
+  },
+  {
+    "id": "1233",
+    "name": "Pie",
+    "description": "sbsrbbsbg sths rtgrtbswa rhgssfr thsar srgb sr f",
+    "price": 6.5,
+    "available": true,
+    "type": "Food"
+  },
+  {
+    "id": "1234",
+    "name": "Pizza",
+    "description": "sbsrbbsbg sths rtgrtbswa rhgssfr thsar srgb sr f",
+    "price": 10,
+    "available": false,
+    "type": "Food"
+  },
+  {
+    "id": "1235",
+    "name": "Coke",
+    "description": "sbsrbbsbg sths rtgrtbswa rhgssfr thsar srgb sr f",
+    "price": 4,
+    "available": true,
+    "type": "Drink"
+  },
+  {
+    "id": "1236",
+    "name": "Wrap",
+    "description": "sbsrbbsbg sths rtgrtbswa rhgssfr thsar srgb sr f",
+    "price": 7.5,
+    "available": false,
+    "type": "Food"
+  },
+  {
+    "id": "1237",
+    "name": "Shake",
+    "description": "sbsrbbsbg sths rtgrtbswa rhgssfr thsar srgb sr f",
+    "price": 5,
+    "available": true,
+    "type": "Drink"
+  }
+]

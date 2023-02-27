@@ -2,31 +2,31 @@
   {
     "id": "123456789",
     "title": "McDonalds",
-    "location": ""
+    "location": "Port Pirie"
   },
   {
     "id": "123456788",
     "title": "Subway",
-    "location": ""
+    "location": "Port Pirie"
   },
   {
     "id": "123456787",
     "title": "KFC",
-    "location": ""
+    "location": "Port Pirie"
   },
   {
     "id": "123456786",
-    "title": "Coles",
-    "location": ""
+    "title": "Safavi",
+    "location": "Port Pirie"
   },
   {
     "id": "123456785",
-    "title": "GuzMan Y Gomez",
-    "location": ""
+    "title": "Osos Mexican",
+    "location": "Port Pirie"
   },
   {
     "id": "123456784",
     "title": "Pizza Hut",
-    "location": ""
+    "location": "Port Pirie"
   }
 ]

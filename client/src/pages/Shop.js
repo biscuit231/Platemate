@@ -1,6 +1,8 @@
 import { createMedia } from '@artsy/fresnel'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
+import Auth from '../utils/auth';
 import {
   Button,
   Container,
@@ -12,10 +14,12 @@ import {
   Segment,
   Sidebar,
   Visibility,
+  Dropdown, 
+  Image
 } from 'semantic-ui-react'
 import Logo from '../assets/images/restaurant.png'
 import { Card } from '../components/Card'
-
+import Cart from '../components/Cart'
 
 const { MediaContextProvider, Media } = createMedia({
   breakpoints: {
@@ -24,6 +28,10 @@ const { MediaContextProvider, Media } = createMedia({
     computer: 1024,
   },
 })
+const logout = (event) => {
+  event.preventDefault();
+  Auth.logout();
+};
 
 const HomepageHeading = ({ mobile }) => (
   <Container text>
@@ -76,14 +84,26 @@ class DesktopContainer extends Component {
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size='big'
+              size='huge'
             >
               <Container>
               <Menu.Item style={{ maxHeight: 50, padding: '1em 1em' }}>
-                <img alt="logo" src={Logo}/>
+              <Image alt="logo" src={Logo} style={{ marginLeft: '0.5em' }} size='tiny'/>
               </Menu.Item>
-                <Menu.Item as='a' href='/'>Home</Menu.Item>
-                <Menu.Item as='a'>Menu</Menu.Item>
+              <Menu.Item style={{ padding: '1.5em 1.6em', margin: '0px 0px -2px'}} ><Link to="/">Home</Link></Menu.Item>
+                <Dropdown text='Menu' as='h3' style={{ maxHeight: 50, padding: '0.5em 0.5em' }}>
+                  <Dropdown.Menu>
+                    <Dropdown.Item icon='edit' text='Edit Profile' />
+                    <Dropdown.Item icon='globe' text='Choose Language' />
+                    <Dropdown.Item icon='settings' text='Account Settings' />
+                  </Dropdown.Menu>
+                </Dropdown>
+                <Menu.Item position='right' >
+                  <Cart/>
+                    <Button inverted={!fixed} primary={fixed} style={{ marginLeft: '0.5em' }} onClick={logout}>
+                      Logout
+                    </Button>
+                </Menu.Item>
               </Container>
             </Menu>
             <HomepageHeading />
@@ -182,8 +202,6 @@ ResponsiveContainer.propTypes = {
 const Shop = () => (
   <ResponsiveContainer>
       <Container style={{ padding: '8em 0em' }}>
-      <Card />
-      <Card />
       <Card />
       </Container>
 

@@ -10,15 +10,15 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 
-// import CheckoutForm from "./pages/CheckoutForm";
 import 'semantic-ui-css/semantic.min.css';
 import './App.css';
 
+import Shop from './pages/Shop'
 import Signuppage from './pages/Signuppage'
 import Loginpage from './pages/Loginpage'
 import Home  from './pages/Home'
 import Checkoutpage from './pages/Checkoutpage'
-// import Shop from './pages/Shop'
+import Success from './pages/Success'
 
 const stripePromise = loadStripe("pk_test_51MdW8iGLek4VvT99uun7zLuoHGZacReZrs0gyOfY31UrfO0aR7LMcNfV1WmhuewQ86GnxFGRrXhqcfqqn6HsVG7t004EpPPIbv");
 
@@ -46,7 +46,6 @@ function App() {
   const [clientSecret, setClientSecret] = useState("");
 
   useEffect(() => {
-    // Create PaymentIntent as soon as the page loads
     fetch("/create-payment-intent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -79,6 +78,14 @@ function App() {
           <Route 
             path='/signup' 
             element={<Signuppage />} 
+          />
+          <Route 
+            path='/shop' 
+            element={<Shop />} 
+          />
+          <Route 
+            path='/success' 
+            element={<Success />} 
           />
           <Route 
             path='/checkout'

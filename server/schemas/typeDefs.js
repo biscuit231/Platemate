@@ -5,7 +5,7 @@ const typeDefs = gql`
     _id: ID
     name: String
     description: String
-    price: Int
+    price: Float
     available: Boolean
     type: String
     img: String
@@ -24,6 +24,7 @@ const typeDefs = gql`
     _id: ID
     title: String
     location: String
+    img: String
     items: [Item]
   }
 
@@ -31,6 +32,11 @@ const typeDefs = gql`
     _id: ID
     purchaseDate: String
     items: [Item]
+  }
+
+  type Address {
+    _id: ID
+    location: String
   }
 
   type Checkout {
@@ -44,10 +50,11 @@ const typeDefs = gql`
 
   type Query {
     items: [Item]
-    restaurants: Restaurant
+    users: [User]
+    restaurants: [Restaurant]
+    addresses: [Address]
     restaurant: [Item]
     item(_id: ID!): Item
-    user: User
     order(_id: ID!): Order
     checkout(items: [ID]!): Checkout
   }

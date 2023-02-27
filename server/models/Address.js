@@ -5,7 +5,7 @@ const addressSchema = new Schema(
     location: {
       type: String
     },
-    classes: [
+    users: [
         {
           type: Schema.Types.ObjectId,
           ref: 'User'

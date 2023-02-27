@@ -34,15 +34,14 @@ const itemSchema = new Schema(
     },
     img: {
       type: String,
-      required: true,
       trim: true
-    },
-    restaurant: [
-      {
-        type: Schema.Types.ObjectId,
-        ref: 'Restaurant'
-      }
-    ]
+    }
+    // restaurant: [
+    //   {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'Restaurant'
+    //   }
+    // ]
   }
 );
 

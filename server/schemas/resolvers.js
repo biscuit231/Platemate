@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Item, User, Restaurant, Order } = require('../models');
+const { Item, User, Restaurant, Order, Address } = require('../models');
 const { signToken } = require('../utils/auth');
 // const stripe = require('stripe')('pk_live_51MdW8iGLek4VvT99EoLXIQFqrbR6sKGlzRBmq4hmSZS8VhhpWEyJKtbq5rBnFYhB0O7s6Bpma6QVSpfRNOZ9Ospm00iVcyIvne');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
@@ -10,11 +10,17 @@ const resolvers = {
     items: async () => {
       return await Item.find({});
     },
+    users: async () => {
+      return await User.find({});
+    },
     restaurants: async () => {
-      return await Restaurant.find({}).populate('items');
+      return await Restaurant.find({});
+    },
+    addresses: async () => {
+      return await Address.find({});
     },
     restaurant: async (parent, args) => {
-      return await Restaurant.findById(args.id);
+      return await Restaurant.findById(args.id).populate('items');
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;

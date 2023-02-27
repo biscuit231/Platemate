@@ -15,6 +15,10 @@ const restaurantSchema = new Schema(
       type: String,
       required: true
     },
+    img: {
+      type: String,
+      trim: true
+    },
     items: [
       {
         type: Schema.Types.ObjectId,

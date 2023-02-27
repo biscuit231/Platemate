@@ -5,7 +5,7 @@ import { idbPromise } from '../utils/helpers';
 import { Header } from "semantic-ui-react";
 
 
-export const Success = () => {
+function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
 
   useEffect(() => {
@@ -40,3 +40,5 @@ export const Success = () => {
     </div>
   );
 }
+
+export default Success
